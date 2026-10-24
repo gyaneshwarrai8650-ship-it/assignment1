@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gyaneshwar Rai's multi-page HTML project">
+    <meta name="author" content="Gyaneshwar Rai">
+
+    <title>Multi-Page Project - Gyaneshwar Rai</title>
+
+    <style>
+        .page {
+            display: none;
+        }
+
+        .page:target,
+        body:not(:has(.page:target)) #home {
+            display: block;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header, footer {
+            background-color: #f0f0f0;
+            padding: 15px;
+        }
+
+        nav a {
+            margin-right: 8px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        label {
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            margin-top: 5px;
+            padding: 6px;
+            max-width: 100%;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <header>
+        <h1>Gyaneshwar Rai's Website</h1>
+        <p>Welcome to my personal multi-page website.</p>
+
+        <nav aria-label="Main navigation">
+            <a href="#home">Home</a> |
+            <a href="#about">About</a> |
+            <a href="#registration">Registration</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Home Page -->
+        <section id="home" class="page">
+            <h2>Home</h2>
+
+            <p>
+                Welcome! This website demonstrates the HTML concepts
+                I have learned, including headings, lists, images,
+                links, forms, tables, and semantic elements.
+            </p>
+
+            <img
+                src="https://picsum.photos/id/1018/600/260"
+                width="600"
+                height="260"
+                alt="Mountain landscape">
+
+            <h3>What You Can Do Here</h3>
+
+            <ul>
+                <li>Read about me on the About page.</li>
+                <li>Explore the registration form.</li>
+                <li>Send me a message through the Contact page.</li>
+            </ul>
+        </section>
+
+        <!-- About Page -->
+        <section id="about" class="page">
+            <h2>About Me</h2>
+
+            <p>
+                My name is Gyaneshwar Rai. I am a BCA (AI) student
+                at Invertis University, Bareilly, Uttar Pradesh.
+                I am learning programming and front-end web development.
+            </p>
+
+            <h3>Quick Facts</h3>
+
+            <table border="1" cellpadding="8">
+                <caption>My Educational Details</caption>
+                <tr>
+                    <th>Detail</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>Gyaneshwar Rai</td>
+                </tr>
+                <tr>
+                    <td>Course</td>
+                    <td>BCA (AI)</td>
+                </tr>
+                <tr>
+                    <td>University</td>
+                    <td>Invertis University</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>Bareilly, Uttar Pradesh</td>
+                </tr>
+                <tr>
+                    <td>Interests</td>
+                    <td>HTML, Programming, Web Development</td>
+                </tr>
+            </table>
+
+            <h3>My Goals</h3>
+            <ul>
+                <li>Improve my programming skills.</li>
+                <li>Create useful websites and projects.</li>
+                <li>Learn Java, databases, and AI.</li>
+            </ul>
+
+            <p>
+                Visit my
+                <a href="https://github.com/gyaneshwarrai8650-ship-it"
+                   target="_blank">GitHub profile</a>
+                to explore my work.
+            </p>
+        </section>
+
+        <!-- Registration Page -->
+        <section id="registration" class="page">
+            <h2>Workshop Registration</h2>
+
+            <p>
+                Fill in this form to register your interest in
+                a beginner web development workshop.
+            </p>
+
+            <form action="#registration" method="get">
+
+                <p>
+                    <label for="name">Full Name:</label><br>
+                    <input type="text" id="name" name="name"
+                           placeholder="Enter your name" required>
+                </p>
+
+                <p>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email"
+                           placeholder="Enter your email" required>
+                </p>
+
+                <p>
+                    <label for="dob">Date of Birth:</label><br>
+                    <input type="date" id="dob" name="dob">
+                </p>
+
+                <p>
+                    <label for="course">Course:</label><br>
+                    <select id="course" name="course" required>
+                        <option value="">Select a course</option>
+                        <option value="bca-ai">BCA (AI)</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="java">Java Programming</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="level">Skill Level:</label><br>
+                    <select id="level" name="level">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                    </select>
+                </p>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <p>
+                Note: This is a practice form. It does not save
+                registration details to a database.
+            </p>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact" class="page">
+            <h2>Contact Me</h2>
+
+            <p>
+                If you want to connect with me about web development
+                or programming, you can use the email link below.
+            </p>
+
+            <form action="mailto:gyaneshwarrai8650@gmail.com"
+                  method="post"
+                  enctype="text/plain">
+
+                <p>
+                    <label for="contact-name">Your Name:</label><br>
+                    <input type="text" id="contact-name" name="name"
+                           required>
+                </p>
+
+                <p>
+                    <label for="message">Your Message:</label><br>
+                    <textarea id="message" name="message"
+                              rows="5" cols="40" required></textarea>
+                </p>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <address>
+                Email:
+                <a href="mailto:gyaneshwarrai8650@gmail.com">
+                    gyaneshwarrai8650@gmail.com
+                </a>
+                <br>
+                Location: Bareilly, Uttar Pradesh
+            </address>
+
+            <p>
+                GitHub:
+                <a href="https://github.com/gyaneshwarrai8650-ship-it"
+                   target="_blank">My GitHub Profile</a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <hr>
+        <p>
+            <small>
+                &copy; 2026 Gyaneshwar Rai. All rights reserved.
+            </small>
+        </p>
+        <p><a href="#home">Back to Home</a></p>
+    </footer>
+
+</body>
+</html>

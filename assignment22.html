@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demonstration of CSS selector types.">
+    <title>CSS Selector Types</title>
+
+    <style>
+        /* 1. Universal selector */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. Element (type) selector */
+        body {
+            font-family: system-ui, sans-serif;
+            background: #eef2f7;
+            color: #222;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        /* 3. Class selector */
+        .card {
+            background: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        /* 4. ID selector */
+        #special {
+            border-left: 5px solid red;
+        }
+
+        /* 5. Descendant selector */
+        .card ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* 6. Child selector */
+        .card > p {
+            color: #444;
+        }
+
+        /* 7. Adjacent sibling selector */
+        h2 + p {
+            font-weight: bold;
+        }
+
+        /* 8. Attribute selector */
+        a[target="_blank"] {
+            background: #e0ecff;
+        }
+
+        /* 9. Pseudo-class selector */
+        a:hover {
+            color: red;
+        }
+
+        /* 10. Focus selector */
+        input:focus {
+            outline: 2px solid #245b8f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Selector Playground</h1>
+
+    <div class="card">
+        <h2>Class &amp; Element</h2>
+        <p>
+            This bold line is styled by the
+            <span class="highlight">adjacent sibling</span> selector.
+        </p>
+        <p>This is a normal paragraph styled by the element selector.</p>
+    </div>
+
+    <div class="card" id="special">
+        <h3>ID selector</h3>
+        <p>
+            Only one element on the page may own this ID,
+            giving it a red left border.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Descendant, Child &amp; Pseudo-class</h3>
+        <ul>
+            <li>First item (nth-child)</li>
+            <li>Even item</li>
+            <li>
+                Item with a link:
+                <a href="https://developer.mozilla.org/"
+                   target="_blank" rel="noopener">
+                    MDN (attribute selector)
+                </a>
+            </li>
+        </ul>
+
+        <p>
+            <input type="text" placeholder="Click me to test focus">
+        </p>
+    </div>
+
+</body>
+</html>

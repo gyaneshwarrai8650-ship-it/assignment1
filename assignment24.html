@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Tokens with CSS Variables</title>
+<style>
+:root {
+    --primary: #3d5af1;
+    --primary-dark: #2b3fb5;
+    --accent: #ff6b6b;
+    --bg: #f5f7ff;
+    --surface: #ffffff;
+    --text: #1f2430;
+    --muted: #6b7280;
+    --space: 1rem;
+    --radius: 10px;
+    --shadow: 0 4px 14px #0002;
+}
+[data-theme="dark"] {
+    --bg: #12141c;
+    --surface: #1e2230;
+    --text: #eef0f7;
+    --muted: #9aa3b5;
+}
+body {
+    margin: 0;
+    padding: 2rem;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+h1 { font-size: 2.4rem; }
+small { color: var(--muted); }
+.btn {
+    background: var(--primary);
+    color: white;
+    border: 0;
+    padding: .6rem 1rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+.btn:hover { background: var(--primary-dark); }
+.accent { background: var(--accent); }
+.card {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+}
+.swatches { display: flex; gap: 1rem; flex-wrap: wrap; }
+.swatch {
+    padding: 1rem;
+    color: white;
+    border-radius: var(--radius);
+}
+</style>
+</head>
+<body>
+<h1>Design Token Sheet</h1>
+<button class="btn" onclick="document.documentElement.dataset.theme =
+document.documentElement.dataset.theme === 'dark' ? '' : 'dark'">
+Toggle dark theme
+</button>
+
+<div class="card">
+<h2>Colours</h2>
+<div class="swatches">
+<div class="swatch" style="background:var(--primary)">Primary</div>
+<div class="swatch" style="background:var(--primary-dark)">Dark</div>
+<div class="swatch" style="background:var(--accent)">Accent</div>
+<div class="swatch" style="background:var(--muted)">Muted</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Type scale</h2>
+<p style="font-size:2rem">Extra large</p>
+<p style="font-size:1.5rem">Large</p>
+<p style="font-size:1.25rem">Medium</p>
+<p>Base text</p>
+<small>Small text</small>
+</div>
+
+<div class="card">
+<h2>Buttons</h2>
+<button class="btn">Primary</button>
+<button class="btn accent">Accent</button>
+</div>
+</body>
+</html>

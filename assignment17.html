@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application Form</title>
+</head>
+<body>
+    <h1>Job Application Form</h1>
+
+    <form>
+        <label>Full Name:
+            <input type="text" name="fullname" required>
+        </label>
+        <br><br>
+
+        <label>Email:
+            <input type="email" name="email" required>
+        </label>
+        <br><br>
+
+        <label>Phone:
+            <input type="tel" name="phone">
+        </label>
+        <br><br>
+
+        <label>Portfolio URL:
+            <input type="url" name="portfolio">
+        </label>
+        <br><br>
+
+        <label>Experience in years:
+            <input type="number" name="experience" min="0" max="50">
+        </label>
+        <br><br>
+
+        <label>Available Date:
+            <input type="date" name="available_date">
+        </label>
+        <br><br>
+
+        <label>Interview Time:
+            <input type="time" name="interview_time">
+        </label>
+        <br><br>
+
+        <label>Upload Resume:
+            <input type="file" name="resume" accept=".pdf,.doc,.docx">
+        </label>
+        <br><br>
+
+        <label>Preferred Position:
+            <select name="position">
+                <option>Web Developer Intern</option>
+                <option>Java Developer Intern</option>
+                <option>AI Intern</option>
+            </select>
+        </label>
+        <br><br>
+
+        <label>Skills:
+            <input type="text" name="skills" placeholder="HTML, CSS, Java">
+        </label>
+        <br><br>
+
+        <label>Cover Letter:</label><br>
+        <textarea name="cover_letter" rows="5" cols="35"></textarea>
+        <br><br>
+
+        <label>
+            <input type="checkbox" required>
+            I confirm the information is correct.
+        </label>
+        <br><br>
+
+        <button type="submit">Submit Application</button>
+        <button type="reset">Clear Form</button>
+    </form>
+</body>
+</html>

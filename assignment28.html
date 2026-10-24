@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fix Layout Overflow</title>
+<style>
+* { box-sizing:border-box; }
+body { font-family:Arial,sans-serif; margin:0; padding:20px; }
+.container { width:100%; max-width:700px; margin:auto; }
+.card { width:100%; padding:20px; border:2px solid #2563eb; overflow-wrap:anywhere; }
+img { max-width:100%; height:auto; }
+.long-text { overflow-wrap:anywhere; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Fix Layout Overflow</h1>
+<div class="card">
+<h2>Responsive Content</h2>
+<p>This card stays within its parent container.</p>
+<p class="long-text">ThisIsAVeryLongWordThatCouldCauseHorizontalOverflowOnSmallScreens</p>
+<img src="https://picsum.photos/700/250" alt="Landscape">
+</div>
+</div>
+</body>
+</html>
