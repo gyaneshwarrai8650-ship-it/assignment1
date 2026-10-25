@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Responsive website using three CSS media query breakpoints by Gyaneshwar Rai."
+  />
+
+  <title>Breakpoints Project - Gyaneshwar Rai</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      background: #f8f9fc;
+      color: #222;
+    }
+
+    header {
+      background: #1f3a93;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    header strong {
+      font-size: 1.3rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #ffe8cc;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 1.5rem;
+      color: #1f3a93;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.25rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #1f3a93;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #ffe8cc;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .test-section {
+      margin-top: 2rem;
+    }
+
+    .test-section h2 {
+      margin-bottom: 1rem;
+      color: #1f3a93;
+    }
+
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background: #1f3a93;
+      color: #fff;
+    }
+
+    .pass {
+      color: #187a36;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #1f3a93;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* BREAKPOINT 1: Tablets and small laptops (1024px) */
+    @media (max-width: 1024px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* BREAKPOINT 2: Large phones (768px) */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+
+      main {
+        padding: 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+
+    /* BREAKPOINT 3: Small phones (480px) */
+    @media (max-width: 480px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <strong>Gyaneshwar's Site</strong>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Responsive Project</h1>
+
+    <p class="intro">
+      Hello! I am Gyaneshwar Rai, a BCA (AI) student.
+      This project demonstrates responsive web design using
+      CSS Grid and three media query breakpoints.
+    </p>
+
+    <section class="cards" id="projects">
+
+      <article class="card">
+        <h2>Home</h2>
+        <p>Welcome to my personal portfolio website.</p>
+      </article>
+
+      <article class="card" id="about">
+        <h2>About</h2>
+        <p>I am a student learning HTML, CSS and Java programming.</p>
+      </article>
+
+      <article class="card">
+        <h2>Projects</h2>
+        <p>My portfolio includes web development practice projects.</p>
+      </article>
+
+      <article class="card" id="contact">
+        <h2>Contact</h2>
+        <p>Email: gyaneshwarrai8650@gmail.com</p>
+      </article>
+
+    </section>
+
+    <span class="badge">
+      Layout: 4 columns → 2 columns → 1 column
+    </span>
+
+    <section class="test-section">
+      <h2>Responsive Test Log</h2>
+
+      <p>
+        Test the layout using Chrome DevTools →
+        Toggle Device Toolbar (Ctrl + Shift + M).
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Device / Width</th>
+              <th>Expected Layout</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Desktop 1440px</td>
+              <td>4 columns</td>
+              <td class="pass">Pass</td>
+            </tr>
+
+            <tr>
+              <td>iPad Air 820px</td>
+              <td>2 columns</td>
+              <td class="pass">Pass</td>
+            </tr>
+
+            <tr>
+              <td>iPhone 14 390px</td>
+              <td>1 column, stacked header</td>
+              <td class="pass">Pass</td>
+            </tr>
+
+            <tr>
+              <td>Galaxy Fold 280px</td>
+              <td>1 column with responsive content</td>
+              <td class="pass">Pass</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Gyaneshwar Rai | Responsive Breakpoints Project</p>
+  </footer>
+
+</body>
+</html>

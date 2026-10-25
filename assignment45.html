@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Midnight Brew - A fully responsive coffee shop landing page by Gyaneshwar Rai.">
+  <title>Midnight Brew | Coffee & Chill</title>
+
+  <style>
+    /* ===== THEME ===== */
+    :root {
+      --bg: #171b16;
+      --green: #b6d6a0;
+      --cream: #f8f1e5;
+      --brown: #4a3527;
+      --gold: #d9a441;
+      --radius: 16px;
+    }
+
+    /* ===== BASE ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1150px, 92%);
+      margin-inline: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .8rem 1.7rem;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #201a12;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* ===== HEADER / NAV ===== */
+    .site-header {
+      background: var(--bg);
+      color: var(--cream);
+      padding-block: 1rem;
+    }
+
+    .site-header .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    .site-nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .site-nav a:hover {
+      color: var(--green);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--bg);
+      color: var(--cream);
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding-block: 4.5rem;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      line-height: 1.12;
+      margin: 1rem 0;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: #d0d0c4;
+      margin-bottom: 1.6rem;
+      font-size: 1.08rem;
+    }
+
+    .hero img {
+      height: 420px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    /* ===== MENU ===== */
+    .menu {
+      background: #fff;
+      padding-block: 4rem;
+    }
+
+    .menu__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .dish {
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--cream);
+      transition: .3s;
+    }
+
+    .dish:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px #30251a18;
+    }
+
+    .dish img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .dish__body {
+      padding: 1.25rem;
+    }
+
+    .dish__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .5rem;
+    }
+
+    .dish__row h3 {
+      font-size: 1.1rem;
+    }
+
+    .dish__price {
+      color: #47734a;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .dish p {
+      color: #71685d;
+      margin-top: .5rem;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding-block: 4rem;
+    }
+
+    .about .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: var(--radius);
+    }
+
+    .about h2 {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      color: #71685d;
+    }
+
+    .about-note {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-left: 4px solid #6e9564;
+      background: #e9efdf;
+      border-radius: 6px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding-block: 3.5rem;
+      text-align: center;
+      background: #263b2a;
+      color: #fff;
+    }
+
+    .contact h2 {
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      color: #e1e9dc;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      padding-block: 1.5rem;
+      background: var(--bg);
+      color: var(--cream);
+    }
+
+    .site-footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: .9rem;
+    }
+
+    .site-footer p {
+      color: #c7c9bd;
+    }
+
+    .nav-toggle,
+    .burger {
+      display: none;
+    }
+
+    .burger {
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ===== TABLET RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero .wrap,
+      .about .wrap {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero img {
+        height: 320px;
+      }
+
+      .menu__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        text-align: center;
+      }
+
+      .about h2 {
+        text-align: center;
+      }
+    }
+
+    /* ===== PHONE RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .site-header .wrap {
+        flex-wrap: wrap;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      .site-nav {
+        width: 100%;
+        display: none;
+      }
+
+      .nav-toggle:checked ~ .site-nav {
+        display: block;
+      }
+
+      .site-nav ul {
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+        padding-top: .75rem;
+      }
+
+      .site-nav a {
+        display: block;
+        padding: .9rem;
+        border-top: 1px solid #ffffff20;
+      }
+
+      .hero .wrap {
+        padding-block: 2.5rem;
+      }
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero img {
+        height: 230px;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .menu__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about img {
+        height: 230px;
+      }
+
+      .site-footer .wrap {
+        flex-direction: column;
+        text-align: center;
+        gap: .4rem;
+      }
+    }
+
+    /* ===== SMALL SCREENS ===== */
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .dish__row {
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: .7rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#">☕ Midnight Brew</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"
+        aria-label="Toggle navigation">
+      <label for="nav-toggle" class="burger" aria-hidden="true">☰</label>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#contact">Visit Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">GOOD COFFEE. SLOW MOMENTS.</span>
+          <h1>Find your <span>happy place.</span></h1>
+          <p>
+            Handcrafted coffee, warm brownies and freshly baked treats
+            made for moments worth remembering.
+          </p>
+          <a class="btn" href="#menu">Explore Our Menu →</a>
+        </div>
+
+        <img src="https://picsum.photos/id/1060/800/600"
+          alt="Coffee and a cosy café atmosphere">
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <h2>Little Treats, Big Joy.</h2>
+
+        <div class="menu__grid">
+          <article class="dish">
+            <img src="https://picsum.photos/id/225/500/400"
+              alt="Freshly prepared coffee">
+            <div class="dish__body">
+              <div class="dish__row">
+                <h3>Velvet Latte</h3>
+                <span class="dish__price">₹180</span>
+              </div>
+              <p>Smooth espresso with creamy steamed milk.</p>
+            </div>
+          </article>
+
+          <article class="dish">
+            <img src="https://picsum.photos/id/292/500/400"
+              alt="Fresh bakery treat">
+            <div class="dish__body">
+              <div class="dish__row">
+                <h3>Butter Croissant</h3>
+                <span class="dish__price">₹120</span>
+              </div>
+              <p>Golden, flaky and freshly baked every morning.</p>
+            </div>
+          </article>
+
+          <article class="dish">
+            <img src="https://picsum.photos/id/312/500/400"
+              alt="Chocolate dessert">
+            <div class="dish__body">
+              <div class="dish__row">
+                <h3>Choco Dream</h3>
+                <span class="dish__price">₹210</span>
+              </div>
+              <p>A rich chocolate treat for your sweet cravings.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <img src="https://picsum.photos/id/431/700/500"
+          alt="Cosy café interior with warm lighting">
+
+        <div>
+          <h2>More Than Just Coffee.</h2>
+          <p>
+            Midnight Brew is a cosy corner for coffee lovers, students and
+            friends. Our idea is simple: great coffee, comforting treats
+            and a welcoming space to slow down and enjoy the moment.
+          </p>
+
+          <div class="about-note">
+            <strong>Our promise:</strong>
+            Fresh flavours, friendly service and a little warmth in every cup.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Your Table Is Waiting.</h2>
+        <p>Visit us daily · 9 AM – 10 PM</p>
+        <a class="btn" href="mailto:gyaneshwarrai8650@gmail.com">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Midnight Brew</span>
+      <p>Landing page by Gyaneshwar Rai</p>
+      <a href="mailto:gyaneshwarrai8650@gmail.com">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive dashboard layout using named grid areas.">
+  <title>Dashboard - Named Grid Areas</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #e9ecf3;
+      color: #222;
+    }
+
+    .dashboard {
+      display: grid;
+      min-height: 100vh;
+      grid-template-columns: 220px repeat(3, 1fr);
+      grid-template-rows: 64px auto 1fr 48px;
+      grid-template-areas:
+        "header header header header"
+        "sidebar stat1 stat2 stat3"
+        "sidebar chart chart activity"
+        "footer footer footer footer";
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+
+    .dashboard > * {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .header {
+      grid-area: header;
+      background: #1f2a44;
+      color: #fff;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background: #2b3a67;
+      color: #fff;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 1rem;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+    }
+
+    .sidebar li:hover {
+      color: #a5b4fc;
+    }
+
+    .stat1 {
+      grid-area: stat1;
+    }
+
+    .stat2 {
+      grid-area: stat2;
+    }
+
+    .stat3 {
+      grid-area: stat3;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #2b3a67;
+      margin-top: 0.5rem;
+    }
+
+    .stat small {
+      color: #16a34a;
+    }
+
+    .chart {
+      grid-area: chart;
+    }
+
+    .chart h2,
+    .activity h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      gap: 10px;
+      height: 200px;
+      margin-top: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .bar-group {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bars span {
+      display: block;
+      width: 70%;
+      max-width: 45px;
+      background: linear-gradient(#748ffc, #364fc7);
+      border-radius: 5px 5px 0 0;
+      transition: background 0.3s;
+    }
+
+    .bars span:hover {
+      background: #f59f00;
+    }
+
+    .bar-group small {
+      font-size: 0.75rem;
+      color: #555;
+    }
+
+    .activity {
+      grid-area: activity;
+    }
+
+    .activity ul {
+      padding-left: 1.2rem;
+    }
+
+    .activity li {
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+    }
+
+    .footer {
+      grid-area: footer;
+      border-radius: 0;
+      text-align: center;
+      font-size: 0.85rem;
+      background: #1f2a44;
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      .dashboard {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "header header"
+          "stat1 stat2"
+          "stat3 stat3"
+          "chart chart"
+          "activity activity"
+          "sidebar sidebar"
+          "footer footer";
+        padding: 0 0.5rem;
+        gap: 0.7rem;
+      }
+
+      .sidebar {
+        border-radius: 10px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "stat1"
+          "stat2"
+          "stat3"
+          "chart"
+          "activity"
+          "sidebar"
+          "footer";
+      }
+
+      .header {
+        gap: 10px;
+        font-size: 0.9rem;
+      }
+
+      .stat strong {
+        font-size: 1.7rem;
+      }
+
+      .bars {
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <header class="header">
+      <strong>📊 Analytics Dashboard</strong>
+      <span>Hello, Gyaneshwar!</span>
+    </header>
+
+    <aside class="sidebar">
+      <h3>Menu</h3>
+      <ul>
+        <li>📊 Overview</li>
+        <li>👥 Users</li>
+        <li>💰 Sales</li>
+        <li>📦 Products</li>
+        <li>📈 Reports</li>
+        <li>⚙️ Settings</li>
+      </ul>
+    </aside>
+
+    <section class="stat stat1">
+      <span>Visitors</span>
+      <strong>12,480</strong>
+      <small>↑ 12% this month</small>
+    </section>
+
+    <section class="stat stat2">
+      <span>Orders</span>
+      <strong>842</strong>
+      <small>↑ 8% this month</small>
+    </section>
+
+    <section class="stat stat3">
+      <span>Revenue</span>
+      <strong>₹4.2L</strong>
+      <small>↑ 15% this month</small>
+    </section>
+
+    <section class="chart">
+      <h2>Weekly Sales</h2>
+      <p>Sales performance for the last seven days</p>
+
+      <div class="bars" aria-label="Weekly sales bar chart">
+        <div class="bar-group">
+          <span style="height: 40%"></span>
+          <small>Mon</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 65%"></span>
+          <small>Tue</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 50%"></span>
+          <small>Wed</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 85%"></span>
+          <small>Thu</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 70%"></span>
+          <small>Fri</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 95%"></span>
+          <small>Sat</small>
+        </div>
+
+        <div class="bar-group">
+          <span style="height: 60%"></span>
+          <small>Sun</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="activity">
+      <h2>Recent Activity</h2>
+      <ul>
+        <li>🛒 New order #842</li>
+        <li>👤 New user registered</li>
+        <li>💳 Payment received</li>
+        <li>↩️ Refund processed</li>
+        <li>📦 Product updated</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      &copy; 2026 Analytics Dashboard. All Rights Reserved.
+    </footer>
+
+  </div>
+
+</body>
+
+</html>

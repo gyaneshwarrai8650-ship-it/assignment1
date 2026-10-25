@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive product grid with header and sidebar using CSS Grid.">
+  <title>TechStore - Responsive Product Grid</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f6f7fb;
+      color: #222;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+      min-height: 100vh;
+    }
+
+    header {
+      grid-area: header;
+      background: #14213d;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header strong {
+      font-size: 1.5rem;
+    }
+
+    header input {
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border: 0;
+      width: min(260px, 45vw);
+      outline: none;
+    }
+
+    aside {
+      grid-area: sidebar;
+      background: #fff;
+      padding: 1.5rem;
+      border-right: 1px solid #ddd;
+    }
+
+    aside h2 {
+      font-size: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    aside ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    aside li {
+      padding: 0.5rem 0;
+      color: #444;
+      cursor: pointer;
+    }
+
+    aside li:hover {
+      color: #2563eb;
+    }
+
+    main {
+      grid-area: main;
+      padding: 1.5rem;
+      min-width: 0;
+    }
+
+    main h1 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .product {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    .product img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #eee;
+    }
+
+    .product h3 {
+      font-size: 1rem;
+      margin: 0.7rem 0 0.3rem;
+    }
+
+    .rating {
+      color: #f59e0b;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .product p.price {
+      color: #0a8754;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .product button {
+      width: 100%;
+      padding: 0.65rem;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .product button:hover {
+      background: #1d4ed8;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #14213d;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "header"
+          "sidebar"
+          "main"
+          "footer";
+      }
+
+      aside {
+        border-right: 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      aside ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+      }
+
+      aside li {
+        padding: 0.3rem 0;
+      }
+
+      main {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      header input {
+        width: 100%;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <header>
+      <strong>TechStore</strong>
+      <input type="search" id="search" placeholder="Search products..."
+        aria-label="Search products">
+    </header>
+
+    <aside>
+      <h2>Categories</h2>
+      <ul>
+        <li>Electronics</li>
+        <li>Fashion</li>
+        <li>Accessories</li>
+        <li>Home & Living</li>
+      </ul>
+
+      <h2>Price Range</h2>
+      <ul>
+        <li>Under ₹1,000</li>
+        <li>₹1,000 – ₹5,000</li>
+        <li>Above ₹5,000</li>
+      </ul>
+    </aside>
+
+    <main>
+      <h1>All Products</h1>
+      <p class="subtitle">Explore our latest products and best deals.</p>
+
+      <div class="products" id="productList">
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80"
+            alt="Wireless headphones">
+          <h3>Wireless Headphones</h3>
+          <div class="rating">★★★★★ (4.8)</div>
+          <p class="price">₹1,499</p>
+          <button onclick="addToCart('Wireless Headphones')">Add to Cart</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"
+            alt="Smart watch">
+          <h3>Smart Watch</h3>
+          <div class="rating">★★★★★ (4.5)</div>
+          <p class="price">₹2,499</p>
+          <button onclick="addToCart('Smart Watch')">Add to Cart</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
+            alt="Sports shoes">
+          <h3>Sports Shoes</h3>
+          <div class="rating">★★★★☆ (4.3)</div>
+          <p class="price">₹1,999</p>
+          <button onclick="addToCart('Sports Shoes')">Add to Cart</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80"
+            alt="Digital camera">
+          <h3>Digital Camera</h3>
+          <div class="rating">★★★★★ (4.6)</div>
+          <p class="price">₹18,999</p>
+          <button onclick="addToCart('Digital Camera')">Add to Cart</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=400&q=80"
+            alt="Modern chair">
+          <h3>Modern Chair</h3>
+          <div class="rating">★★★★☆ (4.2)</div>
+          <p class="price">₹3,999</p>
+          <button onclick="addToCart('Modern Chair')">Add to Cart</button>
+        </article>
+
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=400&q=80"
+            alt="Photography camera">
+          <h3>Photography Camera</h3>
+          <div class="rating">★★★★★ (4.7)</div>
+          <p class="price">₹24,999</p>
+          <button onclick="addToCart('Photography Camera')">Add to Cart</button>
+        </article>
+
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2026 TechStore. All Rights Reserved.
+    </footer>
+
+  </div>
+
+  <script>
+    function addToCart(productName) {
+      alert(productName + " added to cart successfully!");
+    }
+
+    const searchInput = document.getElementById("search");
+    const products = document.querySelectorAll(".product");
+
+    searchInput.addEventListener("input", function () {
+      const searchText = searchInput.value.toLowerCase();
+
+      products.forEach(function (product) {
+        const productName = product.querySelector("h3").textContent.toLowerCase();
+
+        if (productName.includes(searchText)) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

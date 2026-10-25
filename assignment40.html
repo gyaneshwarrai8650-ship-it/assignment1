@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CSS Grid portfolio layout of Gyaneshwar Rai.">
+  <title>Grid Project - Gyaneshwar Rai Portfolio</title>
+
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --paper: #fdfbf7;
+      --accent: #e94560;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .layout {
+      display: grid;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 1.5rem;
+      padding: 1.5rem;
+
+      grid-template-columns: repeat(12, 1fr);
+
+      grid-template-areas:
+        "head head head head head head head head head head head head"
+        "hero hero hero hero hero hero hero about about about about about"
+        "p1 p1 p1 p2 p2 p2 p3 p3 p3 p4 p4 p4"
+        "skills skills skills skills skills skills contact contact contact contact contact contact"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    }
+
+    .head {
+      grid-area: head;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 3px double var(--ink);
+      padding-bottom: 0.75rem;
+    }
+
+    .head h1 {
+      font-size: 2.2rem;
+    }
+
+    .head nav a {
+      margin-left: 1rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .head nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      grid-area: hero;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero h2 {
+      position: absolute;
+      left: 1.5rem;
+      bottom: 1.5rem;
+      color: #fff;
+      font-size: 2rem;
+      text-shadow: 0 2px 8px #000;
+    }
+
+    .about {
+      grid-area: about;
+      background: var(--ink);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .about h2 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .p1 {
+      grid-area: p1;
+    }
+
+    .p2 {
+      grid-area: p2;
+    }
+
+    .p3 {
+      grid-area: p3;
+    }
+
+    .p4 {
+      grid-area: p4;
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      border-radius: 6px;
+      background: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px #00000012;
+    }
+
+    .project h3 {
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .skills {
+      grid-area: skills;
+    }
+
+    .skills ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .skills li {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 0.4rem;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    .contact {
+      grid-area: contact;
+      background: #fff0f3;
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .contact h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .contact a {
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+
+    .foot {
+      grid-area: foot;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-areas:
+          "head head"
+          "hero hero"
+          "about about"
+          "p1 p2"
+          "p3 p4"
+          "skills skills"
+          "contact contact"
+          "foot foot";
+      }
+    }
+
+    @media (max-width: 520px) {
+      .layout {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+          "head"
+          "hero"
+          "about"
+          "p1"
+          "p2"
+          "p3"
+          "p4"
+          "skills"
+          "contact"
+          "foot";
+
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .head {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .head h1 {
+        font-size: 1.8rem;
+      }
+
+      .head nav a {
+        margin-left: 0;
+        margin-right: 0.8rem;
+      }
+
+      .hero {
+        min-height: 240px;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .skills ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <header class="head">
+      <h1>Gyaneshwar Rai</h1>
+
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <img
+        src="https://picsum.photos/id/1040/1000/600"
+        alt="Beautiful landscape with a river and hills">
+
+      <h2>Building the web, one grid at a time.</h2>
+    </section>
+
+    <section class="about">
+      <h2>About Me</h2>
+
+      <p>
+        I am a BCA (AI) student at Invertis University,
+        interested in web development and programming.
+        I am learning HTML, CSS, Java and responsive web
+        design to build useful and user-friendly websites.
+      </p>
+    </section>
+
+    <article class="project p1" id="work">
+      <h3>Resume Website</h3>
+      <p>
+        A personal resume webpage created using semantic
+        HTML and basic CSS styling.
+      </p>
+    </article>
+
+    <article class="project p2">
+      <h3>Login Form</h3>
+      <p>
+        A clean and responsive login interface using
+        HTML, CSS and Flexbox.
+      </p>
+    </article>
+
+    <article class="project p3">
+      <h3>Photo Gallery</h3>
+      <p>
+        A responsive photo gallery built with CSS Grid
+        and flexible image layouts.
+      </p>
+    </article>
+
+    <article class="project p4">
+      <h3>Khatauni Prototype</h3>
+      <p>
+        An educational web prototype demonstrating a
+        khatauni information interface using sample data.
+      </p>
+    </article>
+
+    <section class="skills" id="skills">
+      <h2>My Skills</h2>
+
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>CSS Grid</li>
+        <li>Flexbox</li>
+        <li>Java Basics</li>
+        <li>Responsive Design</li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Me</h2>
+
+      <p>
+        📧 Email:
+        <a href="mailto:gyaneshwarrai8650@gmail.com">
+          gyaneshwarrai8650@gmail.com
+        </a>
+      </p>
+
+      <p>📍 Location: Bareilly, Uttar Pradesh</p>
+
+      <p>
+        💻 GitHub:
+        <a href="https://github.com/gyaneshwarrai8650-ship-it"
+           target="_blank" rel="noopener noreferrer">
+          Visit My GitHub
+        </a>
+      </p>
+
+      <p>
+        🔗 LinkedIn:
+        <a href="https://www.linkedin.com/in/gyaneshwar-rai-342865437"
+           target="_blank" rel="noopener noreferrer">
+          Visit My LinkedIn
+        </a>
+      </p>
+    </section>
+
+    <footer class="foot">
+      <p>&copy; 2026 Gyaneshwar Rai | CSS Grid Portfolio Project</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

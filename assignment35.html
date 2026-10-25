@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive landing section designed using CSS Flexbox.">
+
+    <title>LearnHub - Start Learning Today</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #263238;
+            background-color: #f5f8fc;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: white;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #087f5b;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #263238;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #087f5b;
+        }
+
+        .nav-links .join {
+            background-color: #087f5b;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 6px;
+        }
+
+        /* Landing Section */
+        .landing {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .landing-content {
+            flex: 1;
+        }
+
+        .label {
+            display: inline-block;
+            background-color: #d3f9e8;
+            color: #087f5b;
+            padding: 9px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .landing h1 {
+            font-size: clamp(34px, 5vw, 54px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .landing h1 span {
+            color: #087f5b;
+        }
+
+        .landing p {
+            color: #607078;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #087f5b;
+            color: white;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #066647;
+        }
+
+        .landing-image {
+            flex: 1;
+        }
+
+        .landing-image img {
+            display: block;
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Highlights */
+        .highlights {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 10px 30px 55px;
+        }
+
+        .highlight {
+            flex: 1 1 180px;
+            max-width: 260px;
+            text-align: center;
+            padding: 22px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .highlight h2 {
+            color: #087f5b;
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .highlight p {
+            color: #607078;
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: #17352d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .landing {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 22px;
+                gap: 30px;
+            }
+
+            .landing p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .landing-image {
+                width: 100%;
+            }
+
+            .highlights {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">LearnHub</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses" class="join">Start Learning</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="landing" id="home">
+
+            <div class="landing-content">
+                <span class="label">LEARN SOMETHING NEW</span>
+
+                <h1>Build Skills for a <span>Better Future.</span></h1>
+
+                <p>
+                    Discover new skills, explore technology and improve
+                    your knowledge with a simple and flexible learning
+                    experience.
+                </p>
+
+                <a href="#courses" class="cta-button">
+                    Explore Courses →
+                </a>
+            </div>
+
+            <div class="landing-image">
+                <img
+                    src="https://picsum.photos/id/20/700/500"
+                    alt="Books and learning materials on a desk">
+            </div>
+
+        </section>
+
+        <section class="highlights" id="courses">
+
+            <article class="highlight">
+                <h2>100+</h2>
+                <p>Learning Resources</p>
+            </article>
+
+            <article class="highlight">
+                <h2>24/7</h2>
+                <p>Learn at Your Pace</p>
+            </article>
+
+            <article class="highlight">
+                <h2>Easy</h2>
+                <p>Beginner-Friendly Content</p>
+            </article>
+
+        </section>
+    </main>
+
+    <footer id="about">
+        <p>&copy; 2026 LearnHub. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

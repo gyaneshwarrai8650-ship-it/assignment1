@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .gallery figure {
+            margin: 0;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery figcaption {
+            padding: 10px;
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Photo Gallery</h1>
+
+    <div class="gallery">
+        <figure>
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Beautiful landscape">
+            <figcaption>Beautiful Landscape</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=600&q=80" alt="Mountain lake">
+            <figcaption>Mountain Lake</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Green forest">
+            <figcaption>Green Forest</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful beach">
+            <figcaption>Beautiful Beach</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Snowy mountains">
+            <figcaption>Snowy Mountains</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=600&q=80" alt="Sunrise landscape">
+            <figcaption>Sunrise Landscape</figcaption>
+        </figure>
+    </div>
+
+</body>
+</html>

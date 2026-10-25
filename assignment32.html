@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="A responsive login form centered using CSS Flexbox.">
+
+    <title>Flexbox Centered Login Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .login {
+            width: 100%;
+            max-width: 380px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            text-align: center;
+            color: #333;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .field input:focus {
+            outline: 2px solid #c3b5ff;
+            border-color: #764ba2;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        a {
+            color: #764ba2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 7px;
+            background-color: #764ba2;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #5d3a85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="login" action="#" method="post">
+
+        <h1>Welcome Back</h1>
+
+        <label class="field">
+            Email Address
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required>
+        </label>
+
+        <label class="field">
+            Password
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                minlength="8"
+                required>
+        </label>
+
+        <div class="options">
+            <label>
+                <input type="checkbox" name="remember">
+                Remember me
+            </label>
+
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit">Log In</button>
+
+    </form>
+
+</body>
+
+</html>

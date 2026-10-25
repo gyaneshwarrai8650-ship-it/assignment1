@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Midnight Brew | Coffee & Chill</title>
+
+  <style>
+    :root {
+      --bg: #171b16;
+      --green: #b6d6a0;
+      --cream: #f8f1e5;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: Georgia, serif;
+      background: var(--bg);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: 90%; max-width: 1050px; margin: auto; }
+    header, footer { padding: 22px 0; }
+    header .wrap, footer .wrap {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+    .logo { color: var(--green); font-size: 1.4rem; font-weight: bold; }
+    nav { display: flex; gap: 20px; }
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 35px; align-items: center; padding: 55px 0;
+    }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
+    .hero h1 span { color: var(--green); }
+    p { color: #c7c9bd; margin: 14px 0 22px; }
+    img { width: 100%; display: block; border-radius: 18px; }
+    .btn {
+      display: inline-block; background: var(--green); color: #172016;
+      padding: 11px 20px; border-radius: 30px; font-weight: bold;
+    }
+    section { padding: 45px 0; }
+    h2 { font-size: 2rem; margin-bottom: 22px; }
+    .menu { background: var(--cream); color: #302b22; }
+    .menu p { color: #71685d; }
+    .dishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .dish { background: white; border-radius: 14px; overflow: hidden; }
+    .dish img { height: 170px; object-fit: cover; border-radius: 0; }
+    .dish div { padding: 16px; }
+    .price { color: #47734a; font-weight: bold; }
+    .about { text-align: center; max-width: 750px; margin: auto; }
+    .contact { text-align: center; background: #263b2a; }
+    footer { font-size: .9rem; }
+    @media (max-width: 650px) {
+      .hero, .dishes { grid-template-columns: 1fr; }
+      .hero { padding: 30px 0; }
+      nav { gap: 10px; font-size: .9rem; }
+      .hero img { max-height: 300px; object-fit: cover; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#">☕ Midnight Brew</a>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">Story</a>
+        <a href="#contact">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <p>GOOD COFFEE. SLOW MOMENTS.</p>
+        <h1>Find your <span>happy place.</span></h1>
+        <p>Handcrafted coffee, warm brownies and little moments worth remembering.</p>
+        <a class="btn" href="#menu">Explore Menu ↗</a>
+      </div>
+      <img src="https://picsum.photos/id/1060/700/600" alt="Fresh coffee">
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="wrap">
+        <h2>Little Treats, Big Joy.</h2>
+        <div class="dishes">
+          <article class="dish">
+            <img src="https://picsum.photos/id/225/500/350" alt="Coffee">
+            <div><h3>Velvet Latte</h3><p>Smooth espresso & creamy milk.</p><span class="price">₹180</span></div>
+          </article>
+          <article class="dish">
+            <img src="https://picsum.photos/id/292/500/350" alt="Bakery treat">
+            <div><h3>Butter Croissant</h3><p>Golden, flaky and freshly baked.</p><span class="price">₹120</span></div>
+          </article>
+          <article class="dish">
+            <img src="https://picsum.photos/id/312/500/350" alt="Chocolate dessert">
+            <div><h3>Choco Dream</h3><p>A rich chocolatey little escape.</p><span class="price">₹210</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="wrap about">
+      <h2>More than just coffee.</h2>
+      <p>Midnight Brew is your cosy corner to recharge, catch up with friends and enjoy the simple things — one cup at a time.</p>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2>Your table is waiting.</h2>
+        <p>Visit us daily · 9 AM – 10 PM</p>
+        <a class="btn" href="tel:+919000000000">Let's Coffee ☕</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Midnight Brew</span>
+      <span>Made with ☕ & love</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Audit & Fixes</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f6fb;
+            font-family: system-ui, Arial, sans-serif;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #174ea6;
+            background: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: 1rem;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            min-width: 0;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .card h2 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            border: 1px solid #d1d5db;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #e5e7eb;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                padding: 10px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Responsive Audit & Fixes</h1>
+
+        <p><strong>Student Name:</strong> Gyaneshwar Rai</p>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <span class="badge">Layout: 4 cols → 2 cols → 1 col</span>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://picsum.photos/id/1011/800/500" alt="Boat on water">
+                <h2>Card One</h2>
+                <p>This card adjusts to the available screen width.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://picsum.photos/id/1015/800/500" alt="Green valley">
+                <h2>Card Two</h2>
+                <p>Images and content remain inside the card.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://picsum.photos/id/1016/800/500" alt="Mountain landscape">
+                <h2>Card Three</h2>
+                <p>The responsive grid rearranges cards on smaller screens.</p>
+            </div>
+        </div>
+
+        <h2>Pricing Table</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Storage</th>
+                        <th>Users</th>
+                        <th>Support</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Basic</td>
+                        <td>10 GB</td>
+                        <td>1</td>
+                        <td>Email</td>
+                        <td>₹0</td>
+                    </tr>
+
+                    <tr>
+                        <td>Pro</td>
+                        <td>100 GB</td>
+                        <td>5</td>
+                        <td>Chat</td>
+                        <td>₹499</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Test Log (Responsive Testing)</h2>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device</th>
+                        <th>Screen Width</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Desktop</td>
+                        <td>1440px</td>
+                        <td>✔ Pass — 3 cards in a row</td>
+                    </tr>
+
+                    <tr>
+                        <td>iPad Air</td>
+                        <td>820px</td>
+                        <td>✔ Pass — Responsive layout</td>
+                    </tr>
+
+                    <tr>
+                        <td>iPhone 14</td>
+                        <td>390px</td>
+                        <td>✔ Pass — Single-column layout</td>
+                    </tr>
+
+                    <tr>
+                        <td>Galaxy Fold</td>
+                        <td>280px</td>
+                        <td>✔ Pass — No page-level horizontal scroll</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Audit Results</h2>
+
+        <ul>
+            <li>Added the viewport meta tag.</li>
+            <li>Fixed the container width for different screens.</li>
+            <li>Prevented images from overflowing their cards.</li>
+            <li>Used responsive font sizes with clamp().</li>
+            <li>Enabled navigation links to wrap on smaller screens.</li>
+            <li>Added horizontal scrolling for wide tables on small screens.</li>
+            <li>Improved navigation link padding for easier tapping.</li>
+            <li>Made the card layout responsive for smaller screens.</li>
+        </ul>
+
+    </div>
+</body>
+</html>
